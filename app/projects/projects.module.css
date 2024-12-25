@@ -1,0 +1,63 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .projectList {
+    margin-top: 3rem;
+  }
+  
+  .subtitle {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .projectList ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .projectList li {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2rem;
+    }
+  
+    .description {
+      font-size: 1rem;
+    }
+  
+    .subtitle {
+      font-size: 1.5rem;
+    }
+  
+    .projectList li {
+      font-size: 1rem;
+    }
+  }
+  
+  

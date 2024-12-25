@@ -1,0 +1,165 @@
+.carouselWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .slide {
+    display: none;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .slide:hover {
+    transform: scale(1.02);
+  }
+  
+  .slide.active {
+    display: block;
+  }
+  
+  .navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+    border-radius: 50%;
+  }
+  
+  .navButton:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .prevButton {
+    left: 10px;
+  }
+  
+  .nextButton {
+    right: 10px;
+  }
+  
+  .indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+  
+  .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 0;
+  }
+  
+  .indicator.active {
+    background-color: white;
+  }
+  
+  .enhancedImageOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .enhancedImageContainer {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 50%;
+  }
+  
+  .closeButton:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  @media (max-width: 768px) {
+    .carouselWrapper {
+      padding: 10px;
+    }
+  
+    .navButton {
+      padding: 8px;
+    }
+  
+    .navButton svg {
+      width: 20px;
+      height: 20px;
+    }
+  
+    .indicators {
+      bottom: 10px;
+    }
+  
+    .indicator {
+      width: 8px;
+      height: 8px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navButton {
+      padding: 6px;
+    }
+  
+    .navButton svg {
+      width: 16px;
+      height: 16px;
+    }
+  
+    .indicators {
+      gap: 6px;
+    }
+  
+    .indicator {
+      width: 6px;
+      height: 6px;
+    }
+  }
+  
+  

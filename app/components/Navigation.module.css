@@ -1,0 +1,135 @@
+.nav {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 20;
+  }
+
+  .logoImg {
+    border-radius: 25px;
+    margin-left: 2rem;
+  }
+  
+  .menuButton {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 20;
+  }
+  
+  .menuContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .link, .socialLink, .languageToggle {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .link:hover, .socialLink:hover, .languageToggle:hover {
+    text-decoration: underline;
+  }
+  
+  .languageToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .bottomLinks {
+    display: flex;
+    align-items: center;
+  }
+  
+  .closeButton {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 30;
+  }
+  
+  @media (max-width: 768px) {
+    .menuButton {
+      display: block;
+    }
+  
+    .menuContainer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #333;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000;
+      padding-top: 4rem;
+    }
+  
+    .menuOpen {
+      transform: translateX(0);
+    }
+  
+    .menu {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+  
+    .link, .socialLink, .languageToggle {
+      font-size: 1.2rem;
+      padding: 1rem;
+    }
+  
+    .bottomLinks {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  
+    .socialLink, .languageToggle {
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+    }
+    .closeButton {
+      display: block;
+    }
+  }
+  
+  
