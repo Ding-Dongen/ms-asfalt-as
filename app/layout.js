@@ -7,7 +7,7 @@ import { Home, Briefcase, Mail, Facebook, Menu, X, Image, Globe } from 'lucide-r
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'RoadMasters Asfalt',
+  title: 'MS Asfalt',
   description: 'Kvalitetsløsninger i asfalt for alle dine belegningsbehov',
 }
 

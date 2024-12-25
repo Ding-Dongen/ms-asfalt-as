@@ -108,7 +108,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 5px;
+    padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 50%;
@@ -139,6 +139,15 @@
     .indicator {
       width: 8px;
       height: 8px;
+    }
+  
+    .enhancedImageContainer {
+      max-width: 95%;
+      max-height: 95%;
+    }
+  
+    .closeButton {
+      padding: 8px;
     }
   }
   

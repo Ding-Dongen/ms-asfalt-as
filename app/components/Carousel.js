@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import styles from './Carousel.module.css'
 
 const images = [
@@ -14,6 +14,7 @@ const images = [
 
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [enhancedImage, setEnhancedImage] = useState(null)
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
@@ -28,40 +29,66 @@ export default function Carousel() {
     return () => clearInterval(interval)
   }, [nextSlide])
 
+  const handleImageClick = (index) => {
+    setEnhancedImage(images[index])
+  }
+
+  const closeEnhancedImage = () => {
+    setEnhancedImage(null)
+  }
+
   return (
-    <div className={`${styles.carousel} carousel`}>
-      {images.map((src, index) => (
-        <div
-          key={index}
-          className={`${styles.slide} ${index === currentIndex ? styles.active : ''}`}
-        >
-          <Image 
-            src={src} 
-            alt={`Slide ${index + 1}`} 
-            width={800} 
-            height={400} 
-            style={{ width: '100%', height: 'auto' }}
-          />
-        </div>
-      ))}
-      <button className={`${styles.navButton} ${styles.prevButton}`} onClick={prevSlide} aria-label="Previous slide">
-        <ChevronLeft size={24} />
-      </button>
-      <button className={`${styles.navButton} ${styles.nextButton}`} onClick={nextSlide} aria-label="Next slide">
-        <ChevronRight size={24} />
-      </button>
-      <div className={styles.indicators}>
-        {images.map((_, index) => (
-          <button
+    <div className={`${styles.carouselWrapper} carousel`}>
+      <div className={styles.carousel}>
+        {images.map((src, index) => (
+          <div
             key={index}
-            className={`${styles.indicator} ${index === currentIndex ? styles.active : ''}`}
-            onClick={() => setCurrentIndex(index)}
-            aria-label={`Go to slide ${index + 1}`}
-          />
+            className={`${styles.slide} ${index === currentIndex ? styles.active : ''}`}
+            onClick={() => handleImageClick(index)}
+          >
+            <Image 
+              src={src} 
+              alt={`Slide ${index + 1}`} 
+              width={800} 
+              height={400} 
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </div>
         ))}
+        <button className={`${styles.navButton} ${styles.prevButton}`} onClick={prevSlide} aria-label="Previous slide">
+          <ChevronLeft size={24} />
+        </button>
+        <button className={`${styles.navButton} ${styles.nextButton}`} onClick={nextSlide} aria-label="Next slide">
+          <ChevronRight size={24} />
+        </button>
+        <div className={styles.indicators}>
+          {images.map((_, index) => (
+            <button
+              key={index}
+              className={`${styles.indicator} ${index === currentIndex ? styles.active : ''}`}
+              onClick={() => setCurrentIndex(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
+      {enhancedImage && (
+        <div className={styles.enhancedImageOverlay} onClick={closeEnhancedImage}>
+          <div className={styles.enhancedImageContainer}>
+            <Image
+              src={enhancedImage}
+              alt="Enhanced view"
+              width={1600}
+              height={800}
+              style={{ width: '100%', height: 'auto' }}
+            />
+            <button className={styles.closeButton} onClick={closeEnhancedImage} aria-label="Close enhanced view">
+              <X size={24} />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
-
 
