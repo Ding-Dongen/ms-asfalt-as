@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Award, Clock, Users } from 'lucide-react'
 import styles from './page.module.css'
-import Carousel from './components/Carousel'
 import { useLanguage } from './LanguageContext'
 import { translations } from './translations'
 

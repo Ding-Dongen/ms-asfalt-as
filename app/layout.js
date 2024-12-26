@@ -12,6 +12,8 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  const currentYear = new Date().getFullYear();
+
   return (
     <html lang="no">
       <body className={`${inter.className} layout`}>
@@ -22,7 +24,7 @@ export default function RootLayout({ children }) {
           </div>
           <footer className="footer">
             <div className="footer-content">
-              <p>&copy; 2025 MS Asfalt. Alle rettigheter forbeholdt.</p>
+              <p>&copy; {currentYear} MS Asfalt. All rights reserved.</p>
               <a
                 href="https://www.facebook.com/MSasfalt/"
                 target="_blank"
