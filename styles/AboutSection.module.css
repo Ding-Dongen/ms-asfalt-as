@@ -1,0 +1,161 @@
+.about {
+    position: relative;
+    padding: 100px 20px;
+    background-color: #f8f9fa;
+    overflow: hidden;
+  }
+  
+  .aboutBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  .aboutShape {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(45deg, rgba(0, 102, 204, 0.05), rgba(0, 102, 204, 0.02));
+    border-radius: 50%;
+    top: -200px;
+    right: -200px;
+    animation: float 20s ease-in-out infinite;
+  }
+  
+  .aboutContent {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .sectionTitle {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: #222;
+    position: relative;
+    padding-bottom: 15px;
+    font-weight: 700;
+    display: inline-block;
+  }
+  
+  .sectionTitle::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #0066cc, #66a3ff);
+    border-radius: 2px;
+  }
+  
+  .aboutTextContainer {
+    margin-bottom: 3rem;
+  }
+  
+  .aboutDescription {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  
+  .aboutStats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+  }
+  
+  .statItem {
+    padding: 20px;
+    text-align: center;
+    min-width: 150px;
+  }
+  
+  .statNumber {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #0066cc;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+  
+  .statNumber::after {
+    content: "+";
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    right: -20px;
+  }
+  
+  .statLabel {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-30px) rotate(5deg);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about {
+      padding: 70px 20px;
+    }
+  
+    .sectionTitle {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  
+    .aboutDescription {
+      font-size: 1rem;
+    }
+  
+    .statNumber {
+      font-size: 2.5rem;
+    }
+  
+    .statNumber::after {
+      font-size: 1.5rem;
+      right: -15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about {
+      padding: 50px 15px;
+    }
+  
+    .sectionTitle {
+      font-size: 1.75rem;
+    }
+  
+    .aboutStats {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  
+    .statItem {
+      padding: 10px;
+      width: 100%;
+    }
+  
+    .statNumber {
+      font-size: 2.25rem;
+    }
+  }
+  

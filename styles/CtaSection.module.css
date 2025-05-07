@@ -1,0 +1,178 @@
+.cta {
+    position: relative;
+    padding: 100px 20px;
+    background-color: #f0f5ff;
+    overflow: hidden;
+  }
+  
+  .ctaBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  .ctaShape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(0, 102, 204, 0.1), rgba(0, 102, 204, 0.05));
+  }
+  
+  .ctaShape:nth-child(1) {
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    left: -150px;
+    animation: float 15s ease-in-out infinite;
+  }
+  
+  .ctaShape:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    bottom: -100px;
+    right: -100px;
+    animation: float 20s ease-in-out infinite reverse;
+  }
+  
+  .ctaContent {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .sectionTitle {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: #222;
+    font-weight: 700;
+  }
+  
+  .ctaActions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .ctaButton {
+    display: inline-flex;
+    align-items: center;
+    background-color: #0066cc;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 102, 204, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ctaButton:hover {
+    background-color: #0055aa;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 102, 204, 0.4);
+  }
+  
+  .ctaButton:hover .ctaButtonIcon {
+    transform: translateX(5px);
+  }
+  
+  .ctaButtonText {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .ctaButtonIcon {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .ctaButton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+  }
+  
+  .ctaButton:hover::before {
+    left: 100%;
+  }
+  
+  .ctaSecondary {
+    display: inline-flex;
+    align-items: center;
+    background-color: transparent;
+    color: #0066cc;
+    border: 2px solid #0066cc;
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ctaSecondary:hover {
+    background-color: rgba(0, 102, 204, 0.1);
+    transform: translateY(-5px);
+  }
+  
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-30px) rotate(5deg);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .cta {
+      padding: 70px 20px;
+    }
+  
+    .sectionTitle {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  
+    .ctaActions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cta {
+      padding: 50px 20px;
+    }
+  
+    .sectionTitle {
+      font-size: 1.75rem;
+    }
+  
+    .ctaButton,
+    .ctaSecondary {
+      padding: 14px 28px;
+      font-size: 1rem;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  

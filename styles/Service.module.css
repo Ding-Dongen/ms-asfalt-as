@@ -1,0 +1,336 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 20px 4rem;
+    overflow-x: hidden;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+  }
+  
+  .title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #0066cc, #66a3ff);
+    border-radius: 2px;
+  }
+  
+  .description {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 5rem;
+  }
+  
+  .serviceItem {
+    position: relative;
+    text-align: center;
+    padding: 40px 30px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .serviceItem:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  .serviceIconWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 2rem;
+    background-color: rgba(0, 102, 204, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .serviceItem:hover .serviceIconWrapper {
+    background-color: #0066cc;
+  }
+  
+  .serviceIcon {
+    color: #0066cc;
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+  }
+  
+  .serviceItem:hover .serviceIcon {
+    color: #fff;
+    transform: scale(1.1);
+  }
+  
+  .serviceIconRing {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px dashed rgba(0, 102, 204, 0.3);
+    border-radius: 50%;
+    animation: spin 20s linear infinite;
+  }
+  
+  .serviceItem:hover .serviceIconRing {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .serviceTitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .serviceDescription {
+    color: #666;
+    line-height: 1.7;
+    transition: all 0.3s ease;
+    flex-grow: 1;
+  }
+  
+  .serviceItemHover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(0, 102, 204, 0.1) 100%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .serviceItem:hover .serviceItemHover {
+    opacity: 1;
+  }
+  
+  /* CTA Section */
+  .ctaSection {
+    position: relative;
+    padding: 80px 40px;
+    background-color: #f0f5ff;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+  
+  .ctaBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  .ctaShape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(0, 102, 204, 0.1), rgba(0, 102, 204, 0.05));
+  }
+  
+  .ctaShape:nth-child(1) {
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    left: -150px;
+    animation: float 15s ease-in-out infinite;
+  }
+  
+  .ctaShape:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    bottom: -100px;
+    right: -100px;
+    animation: float 20s ease-in-out infinite reverse;
+  }
+  
+  .ctaContent {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .ctaTitle {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+    font-weight: 700;
+  }
+  
+  .ctaDescription {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  
+  .ctaButton {
+    display: inline-flex;
+    align-items: center;
+    background-color: #0066cc;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 102, 204, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ctaButton:hover {
+    background-color: #0055aa;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 102, 204, 0.4);
+  }
+  
+  .ctaButton:hover .ctaButtonIcon {
+    transform: translateX(5px);
+  }
+  
+  .ctaButtonText {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .ctaButtonIcon {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .ctaButton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+  }
+  
+  .ctaButton:hover::before {
+    left: 100%;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-30px) rotate(5deg);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 1.5rem 20px 3rem;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  
+    .description {
+      font-size: 1rem;
+    }
+  
+    .servicesGrid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  
+    .ctaSection {
+      padding: 60px 30px;
+    }
+  
+    .ctaTitle {
+      font-size: 1.75rem;
+    }
+  
+    .ctaDescription {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .title {
+      font-size: 1.75rem;
+    }
+  
+    .servicesGrid {
+      grid-template-columns: 1fr;
+    }
+  
+    .ctaSection {
+      padding: 40px 20px;
+    }
+  
+    .ctaTitle {
+      font-size: 1.5rem;
+    }
+  
+    .ctaButton {
+      padding: 14px 28px;
+      font-size: 1rem;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  

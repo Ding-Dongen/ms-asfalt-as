@@ -1,66 +1,45 @@
-'use client'
-
-import Image from 'next/image'
-import Link from 'next/link'
-import { Award, Clock, Users } from 'lucide-react'
-import styles from './page.module.css'
-import { useLanguage } from './LanguageContext'
-import { translations } from './translations'
+"use client"
+import { useEffect } from "react"
+import { useLanguage } from "./LanguageContext"
+import { translations } from "./translations"
+import HeroSection from "./sections/HeroSection"
+import FeaturesSection from "./sections/FeatureSection"
+import AboutSection from "./sections/AboutSection"
+import CtaSection from "./sections/CtaSection"
+import styles from "./page.module.css"
 
 export default function Home() {
   const { language } = useLanguage()
   const t = translations[language]
 
+  useEffect(() => {
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.visible)
+          }
+        })
+      },
+      { threshold: 0.1 },
+    )
+
+    // Observe all elements with the animate class
+    const animatedElements = document.querySelectorAll(`.${styles.animate}`)
+    animatedElements.forEach((el) => observer.observe(el))
+
+    return () => {
+      animatedElements.forEach((el) => observer.unobserve(el))
+    }
+  }, [])
+
   return (
     <div className={styles.container}>
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>{t.heroTitle}</h1>
-          <p className={styles.heroDescription}>{t.heroDescription}</p>
-          <p className={styles.heroDescription}>{t.heroDescription2}</p>
-          <Link href="/contact" className={styles.ctaButton}>
-            {t.getQuote}
-          </Link>
-        </div>
-      </section>
-
-
-
-      <section className={styles.features}>
-        <h2 className={styles.featuresTitle}>{t.whyChooseUs}</h2>
-        <div className={styles.featureGrid}>
-          <div className={styles.featureItem}>
-            <Award size={48} className={styles.featureIcon} />
-            <h3 className={styles.featureItemTitle}>{t.qualityMaterials}</h3>
-            <p>{t.qualityMaterialsDesc}</p>
-          </div>
-          <div className={styles.featureItem}>
-            <Users size={48} className={styles.featureIcon} />
-            <h3 className={styles.featureItemTitle}>{t.expertTeam}</h3>
-            <p>{t.expertTeamDesc}</p>
-          </div>
-          <div className={styles.featureItem}>
-            <Clock size={48} className={styles.featureIcon} />
-            <h3 className={styles.featureItemTitle}>{t.timelyDelivery}</h3>
-            <p>{t.timelyDeliveryDesc}</p>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.about}>
-        <div className={styles.aboutContent}>
-          <h2 className={styles.aboutTitle}>{t.aboutTitle}</h2>
-          <p className={styles.aboutDescription}>{t.aboutContent}</p>
-        </div>
-      </section>
-
-      <section className={styles.cta}>
-        <h2 className={styles.ctaTitle}>{t.readyToStart}</h2>
-        <Link href="/contact" className={styles.ctaButton}>
-          {t.contactUsToday}
-        </Link>
-      </section>
+      <HeroSection translations={t} />
+      <FeaturesSection translations={t} />
+      <AboutSection translations={t} />
+      <CtaSection translations={t} />
     </div>
   )
 }
-

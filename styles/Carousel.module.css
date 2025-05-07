@@ -1,0 +1,280 @@
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+}
+
+.carouselPlaceholder {
+  width: 100%;
+  height: 500px;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+}
+
+.swiper {
+  width: 100%;
+  height: 500px;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slideContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: #fff;
+}
+
+.slideTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.slideDescription {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  max-width: 80%;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.slideMeta {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.slideLocation,
+.slideYear {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.enhancedImageOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.enhancedImageContainer {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.enhancedImage {
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.closeButton {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.closeButton:hover {
+  transform: scale(1.1);
+}
+
+/* Swiper overrides */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.swiper-pagination-bullet {
+  background-color: #fff !important;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #0066cc !important;
+  opacity: 1;
+}
+
+/* Improved mobile styles */
+@media (max-width: 768px) {
+  .swiper {
+    height: 400px;
+  }
+
+  .slideInfo {
+    padding: 1.5rem;
+  }
+
+  .slideTitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .slideDescription {
+    font-size: 0.9rem;
+    max-width: 100%;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .slideMeta {
+    gap: 1rem;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 35px !important;
+    height: 35px !important;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 16px !important;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .swiper {
+    height: 350px;
+  }
+
+  .slideInfo {
+    padding: 1.25rem 1rem;
+  }
+
+  .slideTitle {
+    font-size: 1.25rem;
+    margin-bottom: 0.3rem;
+    width: 100%;
+  }
+
+  .slideDescription {
+    position: relative;
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+    width: 100%;
+    line-height: 1.3;
+    max-height: 3.9em; /* 3 lines of text */
+    overflow: hidden;
+    /* Add fade effect at the bottom */
+    padding-right: 1rem; /* Space for the fade effect */
+  }
+
+  /* Create fade effect with pseudo-element */
+  .slideDescription::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: 1.3em; /* Same as line-height */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8) 50%);
+    pointer-events: none;
+  }
+
+  .slideMeta {
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .slideLocation,
+  .slideYear {
+    gap: 0.3rem;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 14px !important;
+  }
+
+  .enhancedImageOverlay {
+    padding: 1rem;
+  }
+}
+
+/* Extra small mobile styles */
+@media (max-width: 360px) {
+  .slideInfo {
+    padding: 1rem 0.75rem;
+  }
+
+  .slideTitle {
+    font-size: 1.1rem;
+  }
+
+  .slideDescription {
+    font-size: 0.8rem;
+    max-height: 2.6em; /* 2 lines of text */
+  }
+
+  .slideMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+}
